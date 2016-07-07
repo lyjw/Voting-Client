@@ -5,7 +5,7 @@ module.exports = {
     // Enables support for hot module replacement
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
-    './src/index.js'
+    './src/index.jsx'
   ],
   // Find .jsx/.js files and process with Babel
   module: {
@@ -17,7 +17,7 @@ module.exports = {
     }]
   },
   resolve: {
-    extensions['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx']
   },
   output: {
     path: __dirname + '/dist',
