@@ -33,4 +33,4 @@ function mapStateToProps(state) {
   }
 }
 
-expect const ResultsContainer = connect(mapStateToProps)(Results);
+export const ResultsContainer = connect(mapStateToProps)(Results);
