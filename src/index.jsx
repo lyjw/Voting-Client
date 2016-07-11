@@ -11,17 +11,13 @@ import {ResultsContainer} from './components/Results';
 
 const store = createStore(reducer);
 
-store.dispatch({
-  type: 'SET_STATE',
-  state: {
-    vote: {
-      pair: ['Sunshine', '28 Days Later'],
-      tally: {Sunshine: 2}
-    }
-  }
-  });
-
+// Server is sending 'state' events once a connection is made
 const socket = io(`${location.protocol}//${location.hostname}:8090`);
+
+// Listens to 'state' events from socket and dispatches 'SET_STATE' action to Store
+socket.on('state', state =>
+  store.dispatch({type: 'SET_STATE', state})
+);
 
 // The 'App' component is the root route
 // The root component serves as the template, rendering the markup that
